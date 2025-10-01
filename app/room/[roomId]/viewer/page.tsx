@@ -1,13 +1,13 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { useSocket } from '@/hooks/useSocket';
+import { useSupabaseRealtime } from '@/hooks/useSupabaseRealtime';
 
 export default function Viewer() {
   const params = useParams();
   const roomId = params.roomId as string;
 
-  const { agendaState, isConnected } = useSocket(roomId, 'viewer');
+  const { agendaState, isConnected } = useSupabaseRealtime(roomId, 'viewer');
 
   const formatTime = (totalSeconds: number) => {
     const mins = Math.floor(totalSeconds / 60);

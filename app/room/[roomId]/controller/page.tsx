@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { useSocket } from '@/hooks/useSocket';
+import { useSupabaseRealtime } from '@/hooks/useSupabaseRealtime';
 import { createClient } from '@/lib/supabase/client';
 import type { TimerItem } from '@/types/timer';
 
@@ -23,7 +23,7 @@ export default function Controller() {
     adjustTime,
     sendMessage,
     clearMessage,
-  } = useSocket(roomId, 'controller');
+  } = useSupabaseRealtime(roomId, 'controller');
 
   const [localAgenda, setLocalAgenda] = useState<TimerItem[]>([]);
   const [newTimerName, setNewTimerName] = useState('');
