@@ -1,0 +1,8 @@
+{
+  "enabledMcpjsonServers": [
+    "shadcn",
+    "context7",
+    "supabase",
+    "browsermcp"
+  ]
+}
